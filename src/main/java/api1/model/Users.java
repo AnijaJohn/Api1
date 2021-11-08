@@ -2,7 +2,7 @@ package api1.model;
 
 import java.sql.Date;
 
-public class Api1Request {
+public class Users {
 	
 
 	private  Long id;
@@ -40,6 +40,8 @@ public class Api1Request {
 	public void setMobno(String mobno) {
 		this.mobno = mobno;
 	}
+	
+	
 	
 	
 
