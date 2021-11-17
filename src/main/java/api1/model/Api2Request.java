@@ -7,7 +7,7 @@ public class Api2Request {
 
 	private  Long rid;
 	private String rname;
-	private Date rdob;
+	private String rdob;
 	private String remail;
 	private String rmobno;
 	public Long getRid() {
@@ -22,11 +22,11 @@ public class Api2Request {
 	public void setRname(String rname) {
 		this.rname = rname;
 	}
-	public Date getRdob() {
+	public String getRdob() {
 		return rdob;
 	}
-	public void setRdob(Date rdob) {
-		this.rdob = rdob;
+	public void setRdob(String string) {
+		this.rdob = string;
 	}
 	public String getRemail() {
 		return remail;

@@ -2,13 +2,37 @@ package api1.model;
 
 import java.sql.Date;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Users {
 	
 
 	private  Long id;
+	
+	@NotNull
+	@Size(message= "name should be less than 30 characters")
 	private String name;
-	private Date dob;
+	
+	@NotNull(message="The bithdate is required")
+	@BirthDate(message = "Enter the date in DD-MM-YYYY format")
+	 @Past(message = "The date of birth must be in the past.")
+	//@DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
+	//@JsonFormat(pattern="DD-MM-YYY")
+	private String dob;
+	
+	@NotNull
+	@Email
 	private String email;
+	
+	@NotNull
+	@Size(min=0,max=10)
 	private String mobno;
 	public Long getId() {
 		return id;
@@ -22,10 +46,10 @@ public class Users {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getDob() {
+	public String getDob() {
 		return dob;
 	}
-	public void setDob(Date dob) {
+	public void setDob(String dob) {
 		this.dob = dob;
 	}
 	public String getEmail() {

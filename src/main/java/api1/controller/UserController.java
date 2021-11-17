@@ -2,6 +2,8 @@ package api1.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import api1.model.Api1Response;
 import api1.model.Users;
 import api1.service.UserService;
-import reactor.core.publisher.Mono;
+
 
 @RestController
 @RequestMapping("/api1")
@@ -34,13 +36,13 @@ public class UserController {
 	}
 	
 	@PostMapping("/add")
-	public ResponseEntity<Api1Response> addUser(@RequestBody Users user) {
+	public ResponseEntity<Api1Response> addUser( @RequestBody Users user) {
 	return new ResponseEntity<Api1Response>(userService.saveUser(user), HttpStatus.CREATED);
 	}
 	
 	
 	@PutMapping("/update")
-	public ResponseEntity<Api1Response> updateUser(@RequestBody  Users user) {
+	public ResponseEntity<Api1Response> updateUser( @RequestBody  Users user) {
 	return new ResponseEntity<Api1Response>(userService.updateUser(user), HttpStatus.OK);
 	}
 	
