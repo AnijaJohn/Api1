@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono;
 @Service
 public class UserServiceImpl implements UserService {
 
-	private String GET_USER_BY_ID_URI = "users/{id}";
+	private String GET_USER_BY_ID_URI = "/users/{id}";
 
 	private String POST_ADD_USER_URI = "/users";
 
@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 	private final WebClient webClient;
 
 	public UserServiceImpl(WebClient.Builder webClientBuilder) {
-		this.webClient = webClientBuilder.baseUrl("http://localhost:8082").build();
+		this.webClient = webClientBuilder.baseUrl("http://localhost:9091/api1").build();
 	}
 
 	@Override

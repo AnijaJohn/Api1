@@ -36,13 +36,13 @@ public class UserController {
 	}
 	
 	@PostMapping("/add")
-	public ResponseEntity<Api1Response> addUser( @RequestBody Users user) {
+	public ResponseEntity<Api1Response> addUser(@Valid  @RequestBody Users user) {
 	return new ResponseEntity<Api1Response>(userService.saveUser(user), HttpStatus.CREATED);
 	}
 	
 	
 	@PutMapping("/update")
-	public ResponseEntity<Api1Response> updateUser( @RequestBody  Users user) {
+	public ResponseEntity<Api1Response> updateUser( @RequestBody @Valid Users user) {
 	return new ResponseEntity<Api1Response>(userService.updateUser(user), HttpStatus.OK);
 	}
 	

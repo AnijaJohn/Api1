@@ -11,6 +11,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import api1.validator.BirthDate;
+
 public class Users {
 	
 
@@ -21,10 +23,7 @@ public class Users {
 	private String name;
 	
 	@NotNull(message="The bithdate is required")
-	@BirthDate(message = "Enter the date in DD-MM-YYYY format")
-	 @Past(message = "The date of birth must be in the past.")
-	//@DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
-	//@JsonFormat(pattern="DD-MM-YYY")
+	@BirthDate
 	private String dob;
 	
 	@NotNull
